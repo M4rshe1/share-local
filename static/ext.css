@@ -1,0 +1,36 @@
+.ext-word {
+    color: #2b579a;
+}
+.ext-pdf {
+    color: #ff0000;
+}
+.ext-powerpoint {
+    color: #d24726;
+}
+.ext-sheet {
+    color: #217346;
+}
+.ext-audio {
+    color: orange;
+}
+.ext-video {
+    color: #1e90ff;
+}
+.ext-img {
+    color: #ff69b4;
+}
+.ext-code {
+    color: #508855;
+}
+.ext-txt {
+    color: #808080;
+}
+.ext-unknown {
+    color: #808080;
+}
+.ext-iso {
+    color: #808080;
+}
+.ext-archive {
+    color: #3805a4;
+}

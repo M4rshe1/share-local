@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local File Share | {{ path }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ext.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<header>
+    {% for el in split %}
+        <a href="{{ el.path }}">{{ el.name }}/</a>
+    {% endfor %}
+</header>
+<main>
+    <div class="wrapper">
+        {% if path != "" %}
+            <a class="element" href="/{{ parent }}" title="Go to parent directory">
+                <div>
+                    <i class="fa-solid fa-folder-minus icon fa-10x"></i>
+                </div>
+                <div class="name">
+                    <span class="name">..</span>
+                </div>
+            </a>
+        {% endif %}
+        {% for file in files %}
+            <div class="element">
+                {% if file.type == 'folder' %}
+                    <a href="/{{ file.path }}" title="{{ file.name }}">
+                        <i class="fa-solid fa-folder icon fa-10x"></i>
+                    </a>
+                    <div class="name">
+                        <span class="name folder"><span class="file_name">{{ file.name }}</span>
+                            <i class="fa-solid fa-ellipsis-vertical menu-icon">
+                                                       {% include 'menu.html' %}
+                            </i>
+                        </span>
+                    </div>
+                {% else %}
+                    <a href="/{{ file.path }}" class="icon-el" title="{{ file.name }}">
+                        <i class="{{ file.icon }} icon fa-10x ext-{{ file.cat }}"></i>
+                    </a>
+                    <div class="name-el">
+                        {#                        onclick="copy_name('{{ file.name }}')"#}
+                        <span class="name file"><span class="file_name">{{ file.name }}</span><i
+                                class="fa-solid fa-ellipsis-vertical menu-icon">
+                          {% include 'menu.html' %}
+                        </i></span>
+                        <span class="ext"><span>{{ file.ext }}</span></span>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</main>
+<script src="{{ url_for('static', filename='menu.js') }}" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+<div class="menu">
+    <div class="menu-item">
+        <i class="fa-solid fa-download fa-2x menu-item-icon"></i>
+        <span class="menu-item menu-item-name" onclick="download_file('{{ file.path }}')">Download</span>
+    </div>
+    <div class="menu-item">
+        <i class="fa-solid fa-copy fa-2x menu-item-icon"></i>
+        <span class="menu-item menu-item-name" onclick="copy_name('{{ file.name }}')">Copy Name</span>
+    </div>
+    <div class="menu-item">
+        <i class="fa-solid fa-arrow-up-right-from-square fa-2x menu-item-icon"></i>
+        <span class="menu-item menu-item-name" onclick="open_new_tab('{{ file.path }}')">New Tab</span>
+    </div>
+    <div class="menu-item">
+        <i class="fa-solid fa-link fa-2x menu-item-icon"></i>
+        <span class="menu-item menu-item-name" onclick="copy_link('{{ file.path }}')">Copy Link</span>
+    </div>
+</div>
+

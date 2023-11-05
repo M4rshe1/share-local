@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://use.fontawesome.com/releases/v6.1.2/css/all.css');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: rgb(25, 25, 25);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    color: #ccc;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.path {
+    display: flex;
+}
+
+.path label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.path label input {
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    color: #ccc;
+}
+
+.wrapper {
+    margin: 40px;
+    display: Grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    /*width: 100%;*/
+
+}
+
+header {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.el {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.icon {
+    margin-bottom: 10px;
+    aspect-ratio: 1;
+    position: relative;
+}
+
+.ext {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+}
+
+.icon:hover {
+    opacity: .8;
+}
+
+.name-el {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.file {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.file_name {
+    width: 100px;
+    /*border: 1px solid #adb8c0;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.folder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+}
+.element {
+    z-index: 1;
+}
