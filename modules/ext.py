@@ -34,7 +34,7 @@ EXT = {
     "AUDIO": {
         "extension": ["aac", "aa", "aac", "dvf", "m4a", "m4b", "m4p", "mp3", "msv", "ogg", "oga", "raw", "vox", "wav",
                           "wma"],
-        "icon": "fas fa-volume-up"},
+        "icon": "fa-solid fa-file-audio"},
     "PDF": {
         "extension": ["pdf"],
         "icon": "fas fa-file-pdf"},
@@ -48,7 +48,7 @@ EXT = {
         "extension": ["xls", "xlsx", "ods", "xlr", "csv"],
         "icon": "fa-solid fa-table"},
     "POWERPOINT": {
-        "extension": ["ppt", "pptx", "odp"],
+        "extension": ["ppt", "pptx", "odp", "pps", "ppsx"],
         "icon": "fas fa-file-powerpoint"},
     "ARCHIVE": {
         "extension": ["7z", "arj", "deb", "pkg", "rar", "rpm", "tar.gz", "z", "zip"],

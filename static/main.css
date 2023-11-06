@@ -5,6 +5,8 @@ html, body {
     margin: 0;
     padding: 0;
     background: rgb(25, 25, 25);
+    height: 100%;
+    width: 100%;
 }
 
 body {
@@ -13,6 +15,7 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
+    /*margin: 20px;*/
 }
 
 * {
@@ -36,22 +39,35 @@ main {
     width: 100%;
 }
 
+header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    padding: 20px;
+}
+
+main, header {
+    border-radius: 15px;
+    margin:20px;
+    background: #2a2a2a;
+}
+
+.path-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .path {
     display: flex;
-}
-
-.path label {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.path label input {
-    margin: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 5px;
-    color: #ccc;
+    justify-content: center;
 }
 
 .wrapper {
@@ -61,12 +77,6 @@ main {
     grid-gap: 20px;
     /*width: 100%;*/
 
-}
-
-header {
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 20px;
 }
 
 .el {
@@ -79,6 +89,7 @@ header {
     margin-bottom: 10px;
     aspect-ratio: 1;
     position: relative;
+    -webkit-transition: all 0.3s ease-in;
 }
 
 .ext {
@@ -125,5 +136,5 @@ header {
     width: 160px;
 }
 .element {
-    z-index: 1;
+    z-index: 0;
 }

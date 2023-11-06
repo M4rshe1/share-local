@@ -1,34 +1,43 @@
 import threading
-
 import flask
 from flask import request, send_from_directory, redirect, Response
 from modules import *
 import os
-# from flask_httpauth import HTTPBasicAuth
+
 app = flask.Flask(__name__)
-# auth = HTTPBasicAuth()
 
 share_root = "C:/Users/Colin/Downloads/SORTED"
+if not os.path.exists(share_root):
+    share_root = select_folder()
 
 
-users = {
-    "admin": "1234",
-}
-
-
+# from flask_httpauth import HTTPBasicAuth
+# from werkzeug.security import check_password_hash, generate_password_hash
+#
+# auth = HTTPBasicAuth()
+# user = 'admin'
+# pw = '1234'
+# users = {
+#     user: generate_password_hash(pw)
+# }
+#
+#
 # @auth.verify_password
 # def verify_password(username, password):
 #     # Verify the provided username and password
-#     if password == users.get(username):
-#         return username
+#     if username in users:
+#         return check_password_hash(users.get(username), password)
 
 
 @app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
 @app.route('/<path:path>', methods=['GET', 'POST'])
 # @auth.login_required
 def index(path=None):
-    if request.method == 'POST':
+    # get the form data$
+    form = request.form.to_dict()
+    print(form)
 
+    if form != {} and "action" in form and form["action"] == "download":
         download_path = os.path.join(share_root, path)
         if os.path.exists(download_path):
             if os.path.isdir(download_path):
@@ -37,13 +46,15 @@ def index(path=None):
                 response = send_from_directory(share_root, path + ".zip", as_attachment=True)
                 # Delete the file after it's sent for download
                 # os.remove(os.path.join(share_root, path + ".zip"))
-                delete_thread = threading.Thread(target=safe_remove_file, args=(os.path.join(share_root, path + ".zip"),))
+                delete_thread = threading.Thread(target=safe_remove_file,
+                                                 args=(os.path.join(share_root, path + ".zip"),))
+                delete_thread.daemon = True
                 delete_thread.start()
                 return response
             else:
                 return send_from_directory(share_root, path, as_attachment=True)
         return redirect("/")
-    elif request.method == 'GET':
+    else:
         # print("Accessing: /" + path)
         if os.path.exists(os.path.join(share_root, request.path[1:])):
             if os.path.isdir(os.path.join(share_root, request.path[1:])):
@@ -64,4 +75,3 @@ if __name__ == '__main__':
     print("The Webserver is sharing the folder: " + share_root + " on port 8888")
     os.chdir(share_root)
     app.run(debug=True, host='0.0.0.0', port=8888)
-

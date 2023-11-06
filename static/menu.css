@@ -1,6 +1,6 @@
 .menu {
     display: none;
-    z-index: 0;
+    z-index: 999 !important;
 }
 
 .menu-icon {
@@ -10,6 +10,7 @@
     align-items: center;
     color: #ccc;
     position: relative;
+    /*-webkit-transition: all 0.3s ease-in;*/
 }
 
 .menu-icon:hover {
@@ -22,9 +23,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(auto-fill, 50px);
     position: absolute;
-    top: 0;
+    top: -10px;
+    /*left: 0;*/
     right: 0;
-    background-color: #282828;
+    background-color: #191919;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -58,7 +60,8 @@
 }
 
 .menu-item-name {
-    width: 120px
+    min-width: 120px;
+    max-width: 240px;
 }
 
 

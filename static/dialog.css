@@ -1,0 +1,60 @@
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    padding: 10px;
+    background: #191919;
+    border-radius: 5px;
+    display: Grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, 50px);
+    grid-gap: 10px;
+}
+
+.dialog .section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 5px;
+}
+.dialog .section1 {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    align-items: center;
+    grid-gap: 20px;
+}
+
+.dialog .prop_name {
+    display: Grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 10px;
+}
+.dialog .prop_div {
+    display: flex;
+    align-items: center;
+}
+
+.dialog .close_btn_div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dialog .close_btn {
+    border-radius: 5px;
+    height: 40px;
+    aspect-ratio: 1;
+    background: #191919;
+    color: #ccc;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.dialog .close_btn:hover {
+    background: #343434;
+    color: white;
+    border: 1px solid white;
+}
