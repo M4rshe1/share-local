@@ -25,18 +25,15 @@ SHARE_ROOT_OVERRIDE = "C:/Users/Colin/Downloads/SORTED"
 
 # Login override will override the settings:
 # UPLOAD_ENABLED_OVERRIDE, DELETE_ENABLED_OVERRIDE and DOWNLOAD_ENABLED_OVERRIDE
-# So that only logged in users can upload, delete and download files
-LOGIN_REQUIRED_OVERRIDE = True  # TODO: Implement login
+# So that only logged-in users can upload, delete and download files
+LOGIN_REQUIRED_OVERRIDE = True
 UPLOAD_ENABLED_OVERRIDE = False  # TODO: Implement upload
 DELETE_ENABLED_OVERRIDE = False  # TODO: Implement delete
-DOWNLOAD_ENABLED_OVERRIDE = True  # TODO: Implement download
+RENAME_ENABLED_OVERRIDE = False  # TODO: Implement rename
+CREATE_FOLDER_ENABLED_OVERRIDE = False  # TODO: Implement create folder
+DOWNLOAD_ENABLED_OVERRIDE = True
 OPEN_BROWSER = False
 share_root = ""
-
-if LOGIN_REQUIRED_OVERRIDE:
-    UPLOAD_ENABLED_OVERRIDE = True
-    DELETE_ENABLED_OVERRIDE = True
-    DOWNLOAD_ENABLED_OVERRIDE = True
 
 # ------------------------------------------------------------ #
 #                           Helpers                            #
@@ -67,14 +64,18 @@ users = {
         'enabled': True,
         'upload': True,
         'delete': True,
-        'download': True
+        'download': True,
+        'rename': True,
+        'create_folder': True
     },
     'guest': {
         'password': generate_password_hash('Bananen.123'),
         'enabled': True,
         'upload': False,
         'delete': False,
-        'download': True
+        'download': True,
+        'rename': False,
+        'create_folder': False
     }
 }
 
@@ -96,35 +97,51 @@ def verify_password(username, password):
 @app.route('/<path:path>', methods=['GET', 'POST'])
 def navigate(path=None):
     form = request.form.to_dict()
-    action = ""
+    action = "show"
     if form != {} and "action" in form:
         action = form["action"]
     if LOGIN_REQUIRED_OVERRIDE:
         @auth.login_required
         def protected_path():
             user = users.get(auth.username())
-            print("User: " + auth.username() + " is accessing: /" + path)
+            print("User: " + auth.username() + " is accessing: /" + path + " with action: " + action)
             if action == "download" and users.get(auth.username()).get('upload'):
                 return download(share_root, path)
-            elif action == "delete" and users.get(auth.username()).get('delete'):
-                return safe_remove_file(os.path.join(share_root, path))
+            elif action == "delete" and users.get(auth.username()).get('delete'): 
+                # return safe_remove_file(os.path.join(share_root, path))
+                return delete_item(share_root, path)
             elif action == "upload" and users.get(auth.username()).get('upload'):
-                return upload(share_root, path)
+                return upload(share_root, path, request)
+            elif action == "rename" and users.get(auth.username()).get('rename'):
+                return rename(share_root, path, form)
+            elif action == "create_folder" and users.get(auth.username()).get('create_folder'):
+                return create_folder(share_root, path, form)
             else:
                 # print("Accessing: /" + path)
-                return check_request(share_root, request, path)
+                return check_request(share_root, request, path, users.get(auth.username()))
+
         return protected_path()
     else:
-        print("Accessing: /" + path)
+        print("Accessing: /" + path + " with action: " + action)
         if action == "download" and DOWNLOAD_ENABLED_OVERRIDE:
             return download(share_root, path)
         elif action == "delete" and DELETE_ENABLED_OVERRIDE:
-            return safe_remove_file(os.path.join(share_root, path))
+            return delete_item(os.path.join(share_root, path))
         elif action == "upload" and UPLOAD_ENABLED_OVERRIDE:
-            return upload(share_root, path)
+            return upload(share_root, path, request.files)
+        elif action == "rename" and RENAME_ENABLED_OVERRIDE:
+            return rename(share_root, path, form)
+        elif action == "create_folder" and CREATE_FOLDER_ENABLED_OVERRIDE:
+            return create_folder(share_root, path, form)
         else:
             # print("Accessing: /" + path)
-            return check_request(share_root, request, path)
+            return check_request(share_root, request, path, {
+                "enabled": True,
+                "upload": UPLOAD_ENABLED_OVERRIDE,
+                "delete": DOWNLOAD_ENABLED_OVERRIDE,
+                "download": DOWNLOAD_ENABLED_OVERRIDE,
+                "rename": RENAME_ENABLED_OVERRIDE
+            })
 
 
 # ------------------------------------------------------------ #
@@ -135,13 +152,9 @@ def page_not_found(e):
     return redirect("/")
 
 
-@app.route('/403')
-def access_denied():
-    return "Access Denied"
-
-
 if __name__ == '__main__':
     # share_root = select_folder()
-    print("The Webserver is sharing the folder: " + share_root + " on port 8888")
+    print("The Webserver is sharing the folder: " + share_root + " on port 8888. Login is required: "
+          + str(LOGIN_REQUIRED_OVERRIDE))
     os.chdir(share_root)
     app.run(host='0.0.0.0', port=8888, debug=True)

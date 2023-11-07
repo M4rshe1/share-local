@@ -5,7 +5,7 @@ from flask import render_template
 from .ext import EXT
 
 
-def list_dir(share_root, path=""):
+def list_dir(share_root, path="", settings=None):
     parent = ""
     directory = []
     # if path != "":
@@ -27,7 +27,10 @@ def list_dir(share_root, path=""):
         last_modified = datetime.datetime.fromtimestamp(last_modified).strftime('%Y-%m-%d %H:%M:%S')
 
         if os.path.isdir(os.path.join(share_root, path, i)):
-            directory.append({"type": "folder", "name": i, "path": os.path.join(path, i), "created_at": created_at, "last_modified": last_modified, "size": size, "icon": "fas fa-folder", "cat": "folder"})
+            directory.append({"type": "folder", "name": i,
+                              "path": os.path.join(path, i).replace('\\', '/'),
+                              "created_at": created_at, "last_modified": last_modified, "size": size,
+                              "icon": "fas fa-folder", "cat": "folder"})
         else:
             ext = i.split(".")[-1]
             # print(ext)
@@ -37,13 +40,17 @@ def list_dir(share_root, path=""):
                 # print(cat)
                 # print(extensions)
                 if ext in extensions["extension"]:
-                    directory.append({"type": "file", "name": i, "path": os.path.join(path, i), "ext": ext,
-                                      "icon": extensions["icon"], "cat": cat.lower(), "created_at": created_at, "last_modified": last_modified, "size": size})
+                    directory.append({"type": "file", "name": i,
+                                      "path": os.path.join(path, i).replace('\\', '/'), "ext": ext,
+                                      "icon": extensions["icon"], "cat": cat.lower(), "created_at": created_at,
+                                      "last_modified": last_modified, "size": size})
                     break
             else:
                 # unknown file type
-                directory.append({"type": "file", "name": i, "path": os.path.join(path, i), "ext": ext,
-                                  "icon": "fas fa-file", "cat": "unknown", "created_at": created_at, "last_modified": last_modified, "size": size})
+                directory.append({"type": "file", "name": i,
+                                  "path": os.path.join(path, i).replace('\\', '/'), "ext": ext,
+                                  "icon": "fas fa-file", "cat": "unknown", "created_at": created_at,
+                                  "last_modified": last_modified, "size": size})
             # for cat, extensions in EXT.items():
             #     if ext in extensions:
             #         directory.append({"type": "file", "name": i, "path": os.path.join(path, i), "ext": ext})
@@ -66,5 +73,5 @@ def list_dir(share_root, path=""):
         index = len(split) - 1
         split.pop(index)
         parent = "/".join(split)
-
-    return render_template("index.html", files=directory, path=path, split=parents, parent=parent)
+    return render_template("index.html", files=directory, path=path, split=parents, parent=parent,
+                           length=len(directory), settings=settings)

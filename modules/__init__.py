@@ -7,3 +7,6 @@ from .open_browser import open_browser
 from .download import download
 from .upload import upload
 from .check_request import check_request
+from .rename import rename
+from .create_folder import create_folder
+from .delete_item import delete_item

@@ -146,3 +146,19 @@ footer {
 .element {
     z-index: 0;
 }
+.empty {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.empty i {
+    opacity: 60%;
+    margin-bottom: 20px;
+}

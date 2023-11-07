@@ -1,12 +1,25 @@
-
 <div class="menu">
-    <div class="menu-item">
-        <i class="fa-solid fa-download fa-2x menu-item-icon"></i>
-        <span class="menu-item menu-item-name" onclick="download_file('{{ file.path }}')">Download</span>
-    </div>
+    {% if settings['download'] %}
+        <div class="menu-item">
+            <i class="fa-solid fa-download fa-2x menu-item-icon"></i>
+            <span class="menu-item menu-item-name" onclick="download_file('/{{ file.path }}')">Download</span>
+        </div>
+    {% endif %}
+    {% if settings['rename'] %}
+        <div class="menu-item">
+            <i class="fa-solid fa-pencil fa-2x menu-item-icon"></i>
+            <span class="menu-item menu-item-name" onclick="rename_file('/{{ file.path }}', '{{ file.name }}')">Rename</span>
+        </div>
+    {% endif %}
+    {% if settings['delete'] %}
+        <div class="menu-item">
+            <i class="fa-solid fa-trash fa-2x menu-item-icon"></i>
+            <span class="menu-item menu-item-name" onclick="delete_file('/{{ file.path }}')">Delete</span>
+        </div>
+    {% endif %}
     <div class="menu-item">
         <i class="fa-solid fa-arrow-up-right-from-square fa-2x menu-item-icon"></i>
-        <span class="menu-item menu-item-name" onclick="open_new_tab('{{ file.path }}')">New Tab</span>
+        <span class="menu-item menu-item-name" onclick="open_new_tab('/{{ file.path }}')">New Tab</span>
     </div>
     <div class="menu-item">
         <i class="fa-solid fa-link fa-2x menu-item-icon"></i>
