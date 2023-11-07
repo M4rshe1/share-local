@@ -26,11 +26,12 @@ SHARE_ROOT_OVERRIDE = "C:/Users/Colin/Downloads/SORTED"
 # Login override will override the settings:
 # UPLOAD_ENABLED_OVERRIDE, DELETE_ENABLED_OVERRIDE and DOWNLOAD_ENABLED_OVERRIDE
 # So that only logged-in users can upload, delete and download files
+# TODO: Implement Move and copy
 LOGIN_REQUIRED_OVERRIDE = True
 UPLOAD_ENABLED_OVERRIDE = False  # TODO: Implement upload
-DELETE_ENABLED_OVERRIDE = False  # TODO: Implement delete
-RENAME_ENABLED_OVERRIDE = False  # TODO: Implement rename
-CREATE_FOLDER_ENABLED_OVERRIDE = False  # TODO: Implement create folder
+DELETE_ENABLED_OVERRIDE = False
+RENAME_ENABLED_OVERRIDE = False
+CREATE_FOLDER_ENABLED_OVERRIDE = False
 DOWNLOAD_ENABLED_OVERRIDE = True
 OPEN_BROWSER = False
 share_root = ""

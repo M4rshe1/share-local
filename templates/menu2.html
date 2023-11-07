@@ -4,10 +4,6 @@
             <i class="fa-solid fa-file-arrow-up fa-2x menu-item-icon"></i>
             <span class="menu-item menu-item-name" onclick="upload_file( '{{ path }}' )">Upload File</span>
         </div>
-        <div class="menu-item">
-            <i class="fa-solid fa-upload fa-2x menu-item-icon"></i>
-            <span class="menu-item menu-item-name" onclick="upload_folder('{{ path }}')">Upload Folder</span>
-        </div>
     {% endif %}
     {% if settings["create_folder"] %}
         <div class="menu-item">
