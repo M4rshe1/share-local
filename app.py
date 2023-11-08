@@ -23,12 +23,11 @@ app = flask.Flask(__name__)
 # If it is empty, the user will be prompted to select a folder
 SHARE_ROOT_OVERRIDE = "C:/Users/Colin/Downloads/SORTED"
 
-# Login override will override the settings:
-# UPLOAD_ENABLED_OVERRIDE, DELETE_ENABLED_OVERRIDE and DOWNLOAD_ENABLED_OVERRIDE
-# So that only logged-in users can upload, delete and download files
+# Login override will override all other settings.
+# So that only logged-in, with the correct respective permissions, can access the website.
 # TODO: Implement Move and copy
 LOGIN_REQUIRED_OVERRIDE = True
-UPLOAD_ENABLED_OVERRIDE = False  # TODO: Implement upload
+UPLOAD_ENABLED_OVERRIDE = False
 DELETE_ENABLED_OVERRIDE = False
 RENAME_ENABLED_OVERRIDE = False
 CREATE_FOLDER_ENABLED_OVERRIDE = False
@@ -36,23 +35,6 @@ DOWNLOAD_ENABLED_OVERRIDE = True
 OPEN_BROWSER = False
 share_root = ""
 
-# ------------------------------------------------------------ #
-#                           Helpers                            #
-# ------------------------------------------------------------ #
-
-
-if not os.path.exists(share_root) and SHARE_ROOT_OVERRIDE == "":
-    share_root = select_folder()
-    if os.path.exists(share_root) and OPEN_BROWSER:
-        open_browser()
-    else:
-        raise Exception("The share root does not exist")
-elif SHARE_ROOT_OVERRIDE != "" and os.path.exists(SHARE_ROOT_OVERRIDE):
-    share_root = SHARE_ROOT_OVERRIDE
-    if OPEN_BROWSER:
-        open_browser()
-else:
-    raise Exception("The share root does not exist")
 
 # ------------------------------------------------------------ #
 #                           Auth                               #
@@ -89,6 +71,26 @@ def verify_password(username, password):
         pw = users.get(username).get('password')
         return check_password_hash(pw, password)
     return False
+
+
+# ------------------------------------------------------------ #
+#                           Helpers                            #
+# ------------------------------------------------------------ #
+
+
+if not os.path.exists(share_root) and SHARE_ROOT_OVERRIDE == "":
+    share_root = select_folder()
+    if os.path.exists(share_root) and OPEN_BROWSER:
+        open_browser()
+    else:
+        raise Exception("The share root does not exist")
+elif SHARE_ROOT_OVERRIDE != "" and os.path.exists(SHARE_ROOT_OVERRIDE):
+    share_root = SHARE_ROOT_OVERRIDE
+    if OPEN_BROWSER:
+        open_browser()
+else:
+    raise Exception("The share root does not exist")
+
 
 
 # ------------------------------------------------------------ #

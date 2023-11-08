@@ -123,14 +123,14 @@ footer {
     justify-content: space-between;
 }
 .file {
-    width: 120px;
+    width: 130px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .file_name {
-    width: 100px;
+    width: 115px;
     /*border: 1px solid #adb8c0;*/
     overflow: hidden;
     text-overflow: ellipsis;

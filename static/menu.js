@@ -36,51 +36,52 @@ function copy_link(url) {
 //     document.body.removeChild(textArea);
 // }
 
-function upload_folder(url) {
-    // open folder selection window
-    let input = document.createElement('input');
-    input.type = 'file';
-    input.multiple = true;
-    input.webkitdirectory = true;
-    input.directory = true;
-    input.click();
-    input.onchange = function () {
-        let form = document.createElement('form');
-        let input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'action';
-        input.value = 'upload';
-        form.appendChild(input);
-        form.action = url;
-        form.method = 'POST';
-        document.body.appendChild(form);
-        form.submit();
-        document.body.removeChild(form);
-    };
-
-
-}
-
 function upload_file(url) {
-    // open file selection window
+    // Create a progress bar element
+    let progressBar = document.createElement('div');
+    progressBar.style.height = '10px';
+    progressBar.style.width = '0';
+    progressBar.style.backgroundColor = '#9a389d';
+    progressBar.style.position = 'fixed';
+    progressBar.style.top = '0';
+    progressBar.style.left = '0';
+    progressBar.style.transition = 'width 0.2s';
+
+    document.body.appendChild(progressBar);
+
+    // Open file selection window
     let input = document.createElement('input');
     input.type = 'file';
     input.multiple = true;
     input.click();
     input.onchange = function () {
-        let form = document.createElement('form');
-        let input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'action';
-        input.value = 'upload';
-        form.appendChild(input);
-        form.action = url;
-        form.method = 'POST';
-        document.body.appendChild(form);
-        form.submit();
-        document.body.removeChild(form);
+        let formData = new FormData();
+        formData.append('file', input.files[0])
+        // Add a listener to track the upload progress
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.upload.onprogress = function (e) {
+            if (e.lengthComputable) {
+                let percentComplete = (e.loaded / e.total) * 100;
+                progressBar.style.width = percentComplete + '%';
+            }
+        };
+
+        // When the upload is complete, remove the progress bar
+        xhr.onload = function () {
+            document.body.removeChild(progressBar);
+        };
+
+        // Prepare and submit the form
+        formData.append('action', 'upload');
+        for (let i = 0; i < input.files.length; i++) {
+            formData.append('file[]', input.files[i]);
+        }
+        console.log(formData);
+        xhr.send(formData);
     };
 }
+
 
 function create_folder(url) {
     let folder_name = prompt("Please enter folder name", "New Folder");
@@ -104,8 +105,9 @@ function create_folder(url) {
     }
 }
 
+
 function rename_file(url, file_name) {
-    let new_name = prompt("Please enter folder name", file_name);
+    let new_name = prompt("Please enter the new Name", file_name);
     console.log("rename: " + url);
     if (new_name != null) {
         let form = document.createElement('form');
