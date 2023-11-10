@@ -56,7 +56,7 @@ EXT = {
         "icon": "fa-solid fa-file-zipper"},
     "DATA": {
         "extension": ["json", "yaml", "yml", "xml", "sql"],
-        "icon": "fas fa-file-code"},
+        "icon": "fas fa-database"},
     "CODE": {
         "extension": ["ps1", "c", "cpp", "py", "java", "class", "cs", "h", "sh", "swift", "vb", "js", "css", "scss",
                       "html", "htm", "php", "asp", "aspx", "jsp"],
