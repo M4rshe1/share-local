@@ -40,6 +40,8 @@ def list_dir(share_root, path="", settings=None):
                 # print(cat)
                 # print(extensions)
                 if ext in extensions["extension"]:
+                    if ext == "gz":
+                        ext = "tar.gz"
                     directory.append({"type": "file", "name": i,
                                       "path": os.path.join(path, i).replace('\\', '/'), "ext": ext,
                                       "icon": extensions["icon"], "cat": cat.lower(), "created_at": created_at,

@@ -52,7 +52,7 @@ EXT = {
         "extension": ["ppt", "pptx", "odp", "pps", "ppsx"],
         "icon": "fas fa-file-powerpoint"},
     "ARCHIVE": {
-        "extension": ["7z", "arj", "deb", "pkg", "rar", "rpm", "tar.gz", "z", "zip"],
+        "extension": ["7z", "arj", "deb", "pkg", "rar", "rpm", "tar.gz", "z", "zip", "gz", "xz", "bz2", "tar", "tgz"],
         "icon": "fa-solid fa-file-zipper"},
     "DATA": {
         "extension": ["json", "yaml", "yml", "xml", "sql"],
