@@ -162,3 +162,7 @@ footer {
     opacity: 60%;
     margin-bottom: 20px;
 }
+
+.empty span {
+    user-select: none;
+}

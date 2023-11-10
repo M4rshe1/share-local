@@ -35,6 +35,23 @@ DOWNLOAD_ENABLED_OVERRIDE = True
 OPEN_BROWSER = False
 share_root = ""
 
+# ------------------------------------------------------------ #
+#                           Helpers                            #
+# ------------------------------------------------------------ #
+
+
+if not os.path.exists(share_root) and SHARE_ROOT_OVERRIDE == "":
+    share_root = select_folder()
+    if os.path.exists(share_root) and OPEN_BROWSER:
+        open_browser()
+    else:
+        raise Exception("The share root does not exist")
+elif SHARE_ROOT_OVERRIDE != "" and os.path.exists(SHARE_ROOT_OVERRIDE):
+    share_root = SHARE_ROOT_OVERRIDE
+    if OPEN_BROWSER:
+        open_browser()
+else:
+    raise Exception("The share root does not exist")
 
 # ------------------------------------------------------------ #
 #                           Auth                               #
@@ -71,26 +88,6 @@ def verify_password(username, password):
         pw = users.get(username).get('password')
         return check_password_hash(pw, password)
     return False
-
-
-# ------------------------------------------------------------ #
-#                           Helpers                            #
-# ------------------------------------------------------------ #
-
-
-if not os.path.exists(share_root) and SHARE_ROOT_OVERRIDE == "":
-    share_root = select_folder()
-    if os.path.exists(share_root) and OPEN_BROWSER:
-        open_browser()
-    else:
-        raise Exception("The share root does not exist")
-elif SHARE_ROOT_OVERRIDE != "" and os.path.exists(SHARE_ROOT_OVERRIDE):
-    share_root = SHARE_ROOT_OVERRIDE
-    if OPEN_BROWSER:
-        open_browser()
-else:
-    raise Exception("The share root does not exist")
-
 
 
 # ------------------------------------------------------------ #
