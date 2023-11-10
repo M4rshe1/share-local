@@ -34,3 +34,12 @@
 .ext-archive {
     color: #31338c;
 }
+.ext-diagrams {
+    color: #f08705;
+}
+.ext-torrent {
+    display: inline-block;
+    background: linear-gradient(90deg, rgb(217, 36, 36) 0%, rgb(217, 36, 36) 50%, rgb(35, 47, 255) 50%, rgb(35, 47, 255) 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
