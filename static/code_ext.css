@@ -1,0 +1,303 @@
+.icon-el {
+    position: relative;
+}
+
+.code-ext {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+.ext-code-html {
+    color: #508855;
+}
+.ext-code-htmx {
+    color: #3d72d7;
+}
+.ext-code-css {
+    color: #264de4;
+}
+.ext-code-sass {
+    color: #c6538c;
+}
+.ext-code-less {
+    color: #1d365d;
+}
+.ext-code-js {
+    color: #f0db4f;
+}
+.ext-code-php {
+    color: #7377ad;
+}
+.ext-code-java {
+    color: #b07219;
+}
+.ext-code-cpp {
+    color: #f34b7d;
+}
+.ext-code-c {
+    color: #f34b7d;
+}
+.ext-code-cs {
+    color: #4bf361;
+}
+.ext-code-py {
+    color: #3572a5;
+}
+.ext-code-rb {
+    color: #701516;
+}
+.ext-code-go {
+    color: #375eab;
+}
+.ext-code-swift {
+    color: #ffac45;
+}
+.ext-code-ts {
+    color: #2b7489;
+}
+.ext-code-sql {
+    color: #c74169;
+}
+.ext-code-rust {
+    color: #dea584;
+}
+.ext-code-kotlin {
+    color: #f18e33;
+}
+.ext-code-scala {
+    color: #c22d40;
+}
+.ext-code-dart {
+    color: #00b4ab;
+}
+.ext-code-elixir {
+    color: #6e4a7e;
+}
+.ext-code-hs, .ext-code-lhs {
+    color: #5e5086;
+}
+.ext-code-lua {
+    color: #000080;
+}
+.ext-code-clojure {
+    color: #db5855;
+}
+.ext-code-erlang {
+    color: #b83998;
+}
+.ext-code-ocaml {
+    color: #3be133;
+}
+.ext-code-r {
+    color: #198ce7;
+}
+.ext-code-docker {
+    color: #0db7ed;
+}
+.ext-code-json {
+    color: #f2c55c;
+}
+.ext-code-yaml {
+    color: #cb171e;
+}
+.ext-code-xml {
+    color: #f34b7d;
+}
+.ext-code-md {
+    color: #000;
+}
+.ext-code-sh {
+    color: #89e051;
+}
+.ext-code-bash {
+    color: #89e051;
+}
+.ext-code-gradle {
+    color: #02303a;
+}
+.ext-code-vue {
+    color: #41b883;
+}
+.ext-code-graphql {
+    color: #e10098;
+}
+.ext-code-nginx {
+    color: #009639;
+}
+.ext-code-toml {
+    color: #b17e00;
+}
+.ext-code-asm {
+    color: #a67219;
+}
+.ext-code-arduino {
+    color: #bd79d1;
+}
+.ext-code-asciidoc {
+    color: #73a0c5;
+}
+.ext-code-awk {
+    color: #c30e00;
+}
+.ext-code-bat {
+    color: #c1f12e;
+}
+.ext-code-cmake {
+    color: #e8ff33;
+}
+.ext-code-ps1 {
+    color: #00347e;
+}
+.ext-code-diff {
+    color: #e6ffed;
+}
+.ext-code-django {
+    color: #0c4b33;
+}
+.ext-code-dockerfile {
+    color: #384d54;
+}
+.ext-code-ejs {
+    color: #a91e50;
+}
+.ext-code-elm {
+    color: #60b5cc;
+}
+.ext-code-perl {
+    color: #0298c3;
+}
+.ext-code-vb {
+    color: #945db7;
+}
+.ext-code-git, .ext-code-gitignore {
+    color: #f34f29;
+}
+.ext-code-haml {
+    color: #ece2a9;
+}
+.ext-code-bs {
+    color: #563d7c;
+}
+.ext-code-zig {
+    color: #ec915c;
+}
+.ext-code-pascal {
+    color: #e3f171;
+}
+.ext-code-twig {
+    color: #c1d026;
+}
+.ext-code-liquid {
+    color: #67b8de;
+}
+.ext-code-lisp {
+    color: #3fb68b;
+}
+.ext-code-jl {
+    color: #a270ba;
+}
+.ext-code-kts {
+    color: #ffac45;
+}
+.ext-code-kt {
+    color: #ffac45;
+}
+.ext-code-ktm {
+    color: #ffac45;
+}
+.ext-code-wsf {
+    color: #c1f12e;
+}
+.ext-code-scss {
+    color: #c6538c;
+}
+.ext-code-yml {
+    color: #cb171e;
+}
+.ext-code-tsx {
+    color: #2b7489;
+}
+.ext-code-vbs {
+    color: #945db7;
+}
+.ext-code-vbe {
+    color: #945db7;
+}
+.ext-code-vba {
+    color: #945db7;
+}
+.ext-code-zsh {
+    color: #89e051;
+}
+.ext-code-wsc {
+    color: #c1f12e;
+}
+.ext-code-jsx {
+    color: #f0db4f;
+}
+.ext-code-pyc {
+    color: #3572a5;
+}
+.ext-code-py3 {
+    color: #3572a5;
+}
+.ext-code-h {
+    color: #f34b7d;
+}
+.ext-code-hpp {
+    color: #f34b7d;
+}
+.ext-code-htm {
+    color: #508855;
+}
+.ext-code-pl {
+    color: #0298c3;
+}
+.ext-code-jsp {
+    color: #f34b7d;
+}
+.ext-code-fich {
+    color: #f34b7d;
+}
+.ext-code-asp {
+    color: #6a40fd;
+}
+.ext-code-asa {
+    color: #6a40fd;
+}
+.ext-code-asm {
+    color: #9b17c9;
+}
+.ext-code-cmd {
+    color: #c1f12e;
+}
+.ext-code-aspx {
+    color: #6a40fd;
+}
+.ext-code-fish {
+    color: #89e051;
+}
+.ext-code-pyo {
+    color: #3572a5;
+}
+.ext-code-for, .ext-code-f, .ext-code-f90, .ext-code-f95, .ext-code-f03, .ext-code-f08, .ext-code-f18, .ext-code-f77, .ext-code-f03, .ext-code-f08, .ext-code-f18, .ext-code-f77 {
+    color: #6f4d91;
+}
+.ext-code-class {
+    color: #b07219;
+}
+.ext-code-cob {
+    color: #10569e;
+}
+.ext-code-cbl {
+    color: #10569e;
+}
+.ext-code-svelte {
+    color: #ff3e00;
+}
+
+

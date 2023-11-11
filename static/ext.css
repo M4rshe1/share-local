@@ -7,7 +7,7 @@
 .ext-powerpoint {
     color: #d24726;
 }
-.ext-sheet {
+.ext-sheet, .ext-excel {
     color: #217346;
 }
 .ext-audio {
@@ -18,9 +18,6 @@
 }
 .ext-img {
     color: #ff69b4;
-}
-.ext-code {
-    color: #508855;
 }
 .ext-txt {
     color: #808080;
@@ -33,6 +30,10 @@
 }
 .ext-archive {
     color: #31338c;
+    /*background: linear-gradient(180deg, rgba(183,28,53,1) 0%, rgba(113,17,32,1) 33%, rgba(64,65,143,1) 33%, rgba(50,52,142,1) 66%, rgba(34,175,72,1) 66%, rgba(17,95,36,1) 100%);*/
+    /*display: inline-block;*/
+    /*-webkit-background-clip: text;*/
+    /*color: transparent;*/
 }
 .ext-diagrams {
     color: #f08705;
@@ -43,7 +44,15 @@
     -webkit-background-clip: text;
     color: transparent;
 }
-
 .ext-data {
     color: #a0325d;
 }
+.ext-font {
+    color: #a0325d;
+}
+/*.ext-exec {*/
+/*    display: inline-block;*/
+/*    -webkit-background-clip: text;*/
+/*    color: transparent;*/
+/*    background: linear-gradient(128deg, rgba(85,125,169,1) 0%, rgba(104,181,116,1) 100%);*/
+/*}*/

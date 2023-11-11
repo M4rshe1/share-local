@@ -1,16 +1,15 @@
 EXT = {
-    "exec": {
-        "extension": ["exe", "msi", "bin", "command", "sh", "bat", "crx", "com", "appimage", "run", "apk", "deb", "rpm",
+    "EXEC": {
+        "extension": ["exe", "msi", "bin", "crx", "com", "appimage", "run", "apk", "deb", "rpm",
                       "jar"],
-        "icon": "fa-solid fa-file-excel"},
-    "font": {
+        "icon": "fa-solid fa-file-invoice"},
+    "FONT": {
         "extension": ["eot", "otf", "ttf", "woff", "woff2", "pf2"],
         "icon": "fas fa-font"},
     "IMG": {
         "extension": ["3dm", "3ds", "max", "bmp", "dds", "gif", "jpg", "jpeg", "png", "psd", "xcf", "tga", "thm", "tif",
                       "tiff", "ai", "eps", "ps", "svg", "dwg", "dxf", "gpx", "kml", "kmz", "webp", "ico", "jfif", "jpe",
-                      "stl",
-                      "pdn"],
+                      "stl", "pdn"],
         "icon": "fa-solid fa-file-image"},
     "ISO": {
         "extension": ["iso", "img", "vcd", "dmg", "toast", "vdi", "vmdk", "vhd", "hdd", "hds", "tc", "truecrypt"],
@@ -40,25 +39,30 @@ EXT = {
         "extension": ["pdf"],
         "icon": "fas fa-file-pdf"},
     "TEXT": {
-        "extension": ["txt", "in", "out", "md"],
+        "extension": ["txt", "in", "out"],
         "icon": "fas fa-file-alt"},
     "WORD": {
         "extension": ["doc", "docx", "odt", "rtf", "tex", "wks", "wps", "wpd"],
         "icon": "fas fa-file-word"},
     "SHEET": {
-        "extension": ["xls", "xlsx", "ods", "xlr", "csv"],
+        "extension": ["ods", "xlr", "csv"],
         "icon": "fa-solid fa-table"},
+    "EXCEL": {
+        "extension": ["xls", "xlsx", "xlt", "xlsm"],
+        "icon": "fas fa-file-excel"},
     "POWERPOINT": {
         "extension": ["ppt", "pptx", "odp", "pps", "ppsx"],
         "icon": "fas fa-file-powerpoint"},
     "ARCHIVE": {
         "extension": ["7z", "arj", "deb", "pkg", "rar", "rpm", "tar.gz", "z", "zip", "gz", "xz", "bz2", "tar", "tgz"],
         "icon": "fa-solid fa-file-zipper"},
-    "DATA": {
-        "extension": ["json", "yaml", "yml", "xml", "sql"],
-        "icon": "fas fa-database"},
     "CODE": {
         "extension": ["ps1", "c", "cpp", "py", "java", "class", "cs", "h", "sh", "swift", "vb", "js", "css", "scss",
-                      "html", "htm", "php", "asp", "aspx", "jsp"],
-        "icon": "fas fa-file-code"},
+                      "html", "htm", "php", "asp", "aspx", "jsp", "json", "yaml", "yml", "xml", "sql", "md", "pyc",
+                      "pyo", "dockerfile", "gitignore", "git",
+                      "lua", "rb", "r", "pl", "go", "ts", "tsx", "jsx", "kt", "kts", "htmx", "dart", "perl",
+                      "toml", "sh", "bash", "zsh", "fish", "ps1", "bat", "cmd", "vbs", "vba", "vbe", "wsf", "wsc", "zig",
+                      "graphql", "cbl", "cob", "pascal", "f", "f90", "for", "lisp", "elixir", "elm", "erlang", "hs",
+                      "lhs", "jl", "svelte"],
+        "icon": "fas fa-file"},
 }

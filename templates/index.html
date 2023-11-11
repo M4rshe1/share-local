@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Local File Share | /{{ path }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='code_ext.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='ext.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='dialog.css') }}">
@@ -51,7 +52,8 @@
                 </div>
             {% else %}
                 <a href="/{{ file.path }}" class="icon-el" title="{{ file.name }}">
-                    <i class="{{ file.icon }} icon fa-10x ext-{{ file.cat }}"></i>
+                    <i class="{{ file.icon }} icon fa-10x ext-{{ file.cat }} {% if file.cat == 'code' %}ext-code-{{ file.ext }}{% endif %}"><span class="code-ext">{% if file.cat == 'code' %}{{ file.ext }}{% endif %}</span></i>
+
                 </a>
                 <div class="name-el">
                     {#                        onclick="copy_name('{{ file.name }}')"#}
