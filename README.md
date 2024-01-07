@@ -57,8 +57,9 @@ For safety reasons, the tool dose also have a mode where you can create users wi
  - set the value of `password` to your password
  -  Be sure to enable the ``LOGIN_REQUIRED_OVERRIDE`` to ``True`` at the top of the ``app.py`` file
  - Set the user rights  
-#### Example:
-````
+#### Example:   
+
+```
 users = {
     'admin': {
         'password': generate_password_hash('Bananen.123'),
@@ -79,4 +80,4 @@ users = {
         'create_folder': False
     }
 }
-````
+```
